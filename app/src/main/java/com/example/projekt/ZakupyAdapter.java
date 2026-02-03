@@ -39,7 +39,7 @@ public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktVie
 
     public class ProduktViewHolder extends RecyclerView.ViewHolder {
         public CheckBox checkBoxView;
-        ZakupyAdapter zakupyAdapter; // TODO: Final
+        final ZakupyAdapter zakupyAdapter; // TODO: Final
         public ProduktViewHolder(@NonNull View itemView, ZakupyAdapter adapter) {
             super(itemView);
             checkBoxView = itemView.findViewById(R.id.checkBox);

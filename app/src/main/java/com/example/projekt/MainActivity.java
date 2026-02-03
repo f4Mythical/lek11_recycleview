@@ -19,7 +19,7 @@ private ZakupyAdapter zakupyAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+//        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -28,6 +28,7 @@ private ZakupyAdapter zakupyAdapter;
 
 
         });
+        produkty = new ArrayList<>();
         produkty.add(new Produkt("Ok",5.0));
         produkty.add(new Produkt("to",5));
         produkty.add(new Produkt("nie",5));
@@ -37,6 +38,7 @@ private ZakupyAdapter zakupyAdapter;
         produkty.add(new Produkt("czaisz",5));
         produkty.add(new Produkt("to",5));
         zakupyAdapter = new ZakupyAdapter(MainActivity.this,produkty);
+        recyclerView = findViewById(R.id.RecyclerView);
         recyclerView.setAdapter(zakupyAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
