@@ -1,6 +1,8 @@
 package com.example.projekt;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 private ArrayList<Produkt> produkty;
 private RecyclerView recyclerView;
 private ZakupyAdapter zakupyAdapter;
+private EditText editTextCena,EditTextNazwa;
+private Button wyslij;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +45,16 @@ private ZakupyAdapter zakupyAdapter;
         recyclerView = findViewById(R.id.RecyclerView);
         recyclerView.setAdapter(zakupyAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        editTextCena = findViewById(R.id.editTextCena);
+        EditTextNazwa = findViewById(R.id.editTextNazwa);
+        wyslij = findViewById(R.id.buttonDodaj);
+        wyslij.setOnClickListener(v -> {
+            String nazwaProduktu = EditTextNazwa.getText().toString().trim();
+            double cena = Double.parseDouble(editTextCena.getText().toString().trim());
+            produkty.add(new Produkt(nazwaProduktu,cena));
+//            zakupyAdapter.notifyDataSetChanged(); // nie musi byc
+            editTextCena.setText("");
+            EditTextNazwa.setText("");
+});
     }
 }
