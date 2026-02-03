@@ -56,5 +56,6 @@ private Button wyslij;
             editTextCena.setText("");
             EditTextNazwa.setText("");
 });
+
     }
 }

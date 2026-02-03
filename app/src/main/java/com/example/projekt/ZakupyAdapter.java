@@ -37,13 +37,28 @@ public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktVie
     return produkty.size();
     }
 
-    public class ProduktViewHolder extends RecyclerView.ViewHolder {
+    public class ProduktViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
         public CheckBox checkBoxView;
         final ZakupyAdapter zakupyAdapter; // TODO: Final
         public ProduktViewHolder(@NonNull View itemView, ZakupyAdapter adapter) {
             super(itemView);
             checkBoxView = itemView.findViewById(R.id.checkBox);
             zakupyAdapter = adapter;
+        }
+
+        @Override
+        public void onClick(View view) {
+            int ktoryProdukt = getLayoutPosition();
+            produkty.get(ktoryProdukt).setCzyKupione(true);
+            if(produkty.get(ktoryProdukt).isCzyKupione()){
+                produkty.get(ktoryProdukt).setCzyKupione(false);
+            }else {
+                produkty.get(ktoryProdukt).setCzyKupione(true);
+            }
+            checkBoxView.setChecked(produkty.get(ktoryProdukt).isCzyKupione());
+            zakupyAdapter.notifyDataSetChanged();
+
         }
     }
 }
