@@ -12,10 +12,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/textViewLista"
         android:text="Lista zakupow: "
         android:textSize="32sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -33,7 +35,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/editTextNazwa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -42,7 +44,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/editTextCena"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -52,7 +54,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonDodaj"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
