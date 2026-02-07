@@ -34,11 +34,13 @@ public ZakupyAdapter(Context context, ArrayList<Produkt> produkty) {
 - 📦 Teraz w ProduktViewHolder dodajemy CheckBox oraz ZakupyAdapter [Zdjecie kodu](https://imgur.com/a/ghFhhmQ)
 - 🔙 W getItemCount robimy ``return produkty.size()``
 - 🤔 Teraz w ProduktViewHolder [Zdjecie kodu w produktViewHolder](https://imgur.com/a/Vyhfccs)
-- 🖼️ Teraz w onBindViewHolder robimy tak [Zdjecie kodu w onBindViewHolder](https://imgur.com/a/CJH3Ubv)
+- 🖼️ Teraz w onBindViewHolder robimy tak [Zdjecie kodu w onBindViewHolder](https://imgur.com/a/CJH3Ubv), oraz nalezy
+synchronizowac stan przy odswiezaniu listy ``holder.checkBoxView.setChecked(produkty.get(position).isCzyKupione());``
 - 📘 W MainActivty dodajemy arraylist zakupyAdapter oraz recyclerView i dodajemy wartosci(POZA ONSTART)(Pamietaj aby pobrac recyclerview)
-- ⚛️ Teraz robimy dodawanie nowego elementu (Fragment ktory i tak umiem)[https://imgur.com/a/yolzkjt]
+- ⚛️ Teraz robimy dodawanie nowego elementu [Fragment ktory i tak umiem](https://imgur.com/a/yolzkjt)
 - ✨ Teraz na klikniecie, ale wpierw w ZakupyAdapter dodajemy ``implements View.OnClickListener``(dodajemy to po extends) a nastepnie importujemy metode ``OnClick``
-- 👆 W tym [OnClick], trzeba zrobic
+- 👆 W tym [OnClick](), trzeba dodac ``checkBoxView.setOnClickListener(this)''
+- 🗑️ I usuwamy ``produkty.get(ktoryProdukt).setCzyKupione(true);`` bo to ***zawsze true ustawia***
 ---
 
 👑 F4Mythical
