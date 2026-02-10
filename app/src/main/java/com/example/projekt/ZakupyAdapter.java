@@ -37,7 +37,10 @@ public class ZakupyAdapter extends RecyclerView.Adapter<ZakupyAdapter.ProduktVie
     public int getItemCount() {
         return produkty.size();
     }
-
+    public void usunZaznaczone(){
+       produkty.removeIf(produkt -> produkt.isCzyKupione());
+       notifyDataSetChanged();
+    }
     public class ProduktViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public CheckBox checkBoxView;

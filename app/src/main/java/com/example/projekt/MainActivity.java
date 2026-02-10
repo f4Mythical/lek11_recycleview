@@ -19,7 +19,7 @@ private ArrayList<Produkt> produkty;
 private RecyclerView recyclerView;
 private ZakupyAdapter zakupyAdapter;
 private EditText editTextCena,EditTextNazwa;
-private Button wyslij;
+private Button wyslij,buttonUsun;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +48,7 @@ private Button wyslij;
         editTextCena = findViewById(R.id.editTextCena);
         EditTextNazwa = findViewById(R.id.editTextNazwa);
         wyslij = findViewById(R.id.buttonDodaj);
+        buttonUsun = findViewById(R.id.buttonUsunZaznaczone);
         wyslij.setOnClickListener(v -> {
             String nazwaProduktu = EditTextNazwa.getText().toString().trim();
             double cena = Double.parseDouble(editTextCena.getText().toString().trim());
@@ -56,6 +57,8 @@ private Button wyslij;
             editTextCena.setText("");
             EditTextNazwa.setText("");
 });
-
+        buttonUsun.setOnClickListener(v -> {
+            zakupyAdapter.usunZaznaczone();
+        });
     }
 }
