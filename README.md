@@ -46,6 +46,20 @@ synchronizowac stan przy odswiezaniu listy ``holder.checkBoxView.setChecked(prod
 - ✨ Teraz na klikniecie, ale wpierw w ZakupyAdapter dodajemy ``implements View.OnClickListener``(dodajemy to po extends) a nastepnie importujemy metode ``OnClick``
 - 👆 W tym [OnClick](), trzeba dodac ``checkBoxView.setOnClickListener(this)``
 - 🗑️ I usuwamy ``produkty.get(ktoryProdukt).setCzyKupione(true);`` bo to ***zawsze true ustawia***
+- 💃 Teraz dodajemy button w mainactivty do usuwania calosci i wprowadzamy ten kod w mainactivity
+```java
+   buttonUsun.setOnClickListener(v -> {
+            zakupyAdapter.usunZaznaczone();
+        });
+```
+- 🛍️ A w zakupyAdapter wprowadzamy
+```java
+  public void usunZaznaczone(){
+       produkty.removeIf(produkt -> produkt.isCzyKupione());
+       notifyDataSetChanged();
+    }
+```
+
 ---
 
 👑 F4Mythical
